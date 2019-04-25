@@ -68,10 +68,10 @@ jobs:
     steps:
       - checkout
       - generate_report:
-        source_directory: << parameters.source_directory >>
-        command: << parameters.command >>
+          source_directory: << parameters.source_directory >>
+          command: << parameters.command >>
       - upload_report:
-        source_directory: << parameters.source_directory >>
-        spotbugs_results_path: << parameters.spotbugs_results_path >>
+          source_directory: << parameters.source_directory >>
+          spotbugs_results_path: << parameters.spotbugs_results_path >>
 
 
