@@ -2,10 +2,7 @@ version: 2.1
 orbs:
   spotbugs: cbonoz/maven-spotbugs@0.0.1
 
-jobs:
-  build:
-    docker: # use the docker executor type; machine and macos executors are also supported
-      - image: circleci/openjdk:9 # the primary container, where your job's commands are run
-    steps:
-      - checkout # check out the code in the project directory
-      - spotbugs/run # run the `spotbugs/run` command
+workflows:
+  main:
+    jobs:
+      - spotbugs/run
