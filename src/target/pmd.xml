@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pmd xmlns="http://pmd.sourceforge.net/report/2.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://pmd.sourceforge.net/report/2.0.0 http://pmd.sourceforge.net/report_2_0_0.xsd"
+    version="6.8.0" timestamp="2019-04-25T14:10:52.143">
+<file name="/Users/cbuonocore/personal/hackathon/circleci19/maven-examples/maven-static-code-analysis/src/main/java/com/mkyong/examples/StaticCodeExample.java">
+<violation beginline="6" endline="6" begincolumn="17" endcolumn="19" rule="UnusedPrivateField" ruleset="Best Practices" package="com.mkyong.examples" class="StaticCodeExample" variable="abc" externalInfoUrl="https://pmd.github.io/pmd-6.8.0/pmd_rules_java_bestpractices.html#unusedprivatefield" priority="3">
+Avoid unused private fields such as 'abc'.
+</violation>
+<violation beginline="9" endline="9" begincolumn="25" endcolumn="35" rule="AvoidUsingHardCodedIP" ruleset="Best Practices" package="com.mkyong.examples" class="StaticCodeExample" externalInfoUrl="https://pmd.github.io/pmd-6.8.0/pmd_rules_java_bestpractices.html#avoidusinghardcodedip" priority="3">
+Do not hard code the IP address 
+</violation>
+</file>
+</pmd>
