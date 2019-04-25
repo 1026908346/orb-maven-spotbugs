@@ -5,4 +5,5 @@ orbs:
 workflows:
   main:
     jobs:
-      - spotbugs/run
+      - spotbugs/run:
+          spotbugs_results_path: src/target/site

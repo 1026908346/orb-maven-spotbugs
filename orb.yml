@@ -59,7 +59,7 @@ jobs:
       spotbugs_results_path:
         description: The path to the test results.
         type: string
-        default: target/site
+        default: src/target/site
       source_directory:
         description: The path to the maven project src (home)
         type: string
