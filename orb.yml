@@ -15,35 +15,31 @@ commands:
     description: |
       Generate SpotBugs report
     parameters:
-      spotbugs_results_path:
-        type: string
       source_directory:
         type: string
       command:
         type: string
     steps:
-      - run
-        name: generate report
-        command: |
-          cd << parameters.source_directory >>
-          mvn << parameters.command >> 
-      - store_spotbugs_results:
-          path: << parameters.spotbugs_results_path >>
+      - run:
+          name: generate report
+          command: |
+            cd << parameters.source_directory >>
+            mvn << parameters.command >> 
 
   upload_report:
     description: |
       Upload SpotBugs results as an artifact.
     parameters:
-      spotbugs_results_path:
-        type: string
       source_directory:
         type: string
+      spotbugs_results_path:
+        type: string
     steps:
-      - run
-        name: cd to directory
-        command: |
-          cd << parameters.source_directory >>
-      - store_spotbugs_results:
+      - run:
+          name: cd to directory
+          command: |
+            cd << parameters.source_directory >>
+      - store_artifacts:
           path: << parameters.spotbugs_results_path >>
 
 jobs:
@@ -71,6 +67,11 @@ jobs:
 
     steps:
       - checkout
-      - generate_report
-      - upload_report
+      - generate_report:
+        source_directory: << parameters.source_directory >>
+        command: << parameters.command >>
+      - upload_report:
+        source_directory: << parameters.source_directory >>
+        spotbugs_results_path: << parameters.spotbugs_results_path >>
+
 
