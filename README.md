@@ -1,9 +1,11 @@
-Circle CI Orb
+Maven SpotBugs 
 ---
 
-Upload spotbug artifacts on your maven projects.
+cbonoz/maven-spotbugs
 
-### How to use:
+Circle CI Orb for uploading SpotBugs artifacts from your java maven projects.
+
+### How to Use:
 * Ensure the SpotBugs plugin is added to the pom.xml of your maven project: https://spotbugs.readthedocs.io/en/latest/maven.html
 * Include the cbonoz/maven-spotbugs orb in your config.yml
 * Run: `spotbugs/run` in your build.
