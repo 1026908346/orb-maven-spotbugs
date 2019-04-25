@@ -10,6 +10,20 @@ executors:
     docker:
       - image: circleci/openjdk:8-jdk-node
 
+examples:
+  simple_upload:
+    description: Upload a SpotBugs artifact from a maven project in the `src` home directory that has SpotBugs specified in the pom.
+    usage:
+      version: 2.1
+      orbs:
+        spotbugs: cbonoz/maven-spotbugs@0.0.2
+      workflows:
+        main:
+          jobs:
+            - spotbugs/run:
+                source_directory: src
+                spotbugs_results_path: src/target/site
+
 commands:
   generate_report:
     description: |

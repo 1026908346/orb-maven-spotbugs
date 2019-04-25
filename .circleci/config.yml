@@ -1,9 +1,10 @@
 version: 2.1
 orbs:
-  spotbugs: cbonoz/maven-spotbugs@0.0.1
+  spotbugs: cbonoz/maven-spotbugs@0.0.2
 
 workflows:
   main:
     jobs:
       - spotbugs/run:
+          source_directory: src
           spotbugs_results_path: src/target/site
