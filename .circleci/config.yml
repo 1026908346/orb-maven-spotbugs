@@ -1,10 +1,16 @@
+# maven spotbugs
+# https://circleci.com/developer/orbs/orb/cbonoz/maven-spotbugs
+# Source: https://github.com/cbonoz/orb-maven-spotbugs
 version: 2.1
+
 orbs:
+  maven: circleci/maven@0.0.12
   spotbugs: cbonoz/maven-spotbugs@0.0.2
 
 workflows:
-  main:
+  maven_test:
     jobs:
+      - maven/test # checkout, build, test, and upload test results
       - spotbugs/run:
           source_directory: src
           spotbugs_results_path: src/target/site
