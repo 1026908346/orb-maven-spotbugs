@@ -1,15 +1,14 @@
-# maven spotbugs
-# https://circleci.com/developer/orbs/orb/cbonoz/maven-spotbugs
-# Source: https://github.com/cbonoz/orb-maven-spotbugs
-version: 2.1
-
+version: '2.1'
 orbs:
-  maven: circleci/maven@0.0.12
-  spotbugs: cbonoz/maven-spotbugs@0.0.2
-
+  newman: postman/newman@1.0.0
+jobs:
+  newman-collection-run:
+    executor: newman/postman-newman-docker
+    steps:
+      - checkout
+      - newman/newman-run:
+          collection: https://lsh-idp.oss-cn-hangzhou.aliyuncs.com/idp-ci/test_data/postman-newman%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE.postman_collection.json
 workflows:
-  maven_test:
-    jobs:
-      - spotbugs/run:
-          source_directory: src
-          spotbugs_results_path: src/target/site
+                use-my-orb:
+                    jobs:
+                        - newman-collection-run
