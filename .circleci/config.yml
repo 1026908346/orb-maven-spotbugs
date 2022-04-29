@@ -3,8 +3,12 @@ orbs:
   newman: postman/newman@1.0.0
 jobs:
   newman-collection-run:
+    parameters:
+      message:
+        type: string
     executor: newman/postman-newman-docker
     steps:
+      - run: echo << parameters.message >>
       - checkout
       - newman/newman-run:
           collection: https://lsh-idp.oss-cn-hangzhou.aliyuncs.com/idp-ci/test_data/postman-newman%E6%B5%8B%E8%AF%95%E6%95%B0%E6%8D%AE.postman_collection.json
@@ -12,4 +16,5 @@ jobs:
 workflows:
                 use-my-orb:
                     jobs:
-                        - newman-collection-run
+                        - newman-collection-run:
+                            message: Hello!
